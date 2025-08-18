@@ -1,0 +1,112 @@
+Player,Team,Position,Over_Pass_Yards,Throw_TDs,Rec_Yards,Rec_TDs,Rush_Yards,Rush_TDs,xFP,xFP_per_game
+Aaron Rodgers,Pittsburgh Steelers,QB,3200.5,23.5,,,,,301.02,17.71
+Jalen Hurts,Philadelphia Eagles,QB,3200.5,19.5,,,600.5,12.5,412.07,24.24
+Patrick Mahomes,Kansas City Chiefs,QB,4050.5,27.5,,,,,367.52,21.62
+Joe Burrow,Cincinnati Bengals,QB,4150.5,33.5,,,,,408.52,24.03
+Sam Darnold,Seattle Seahawks,QB,3400.5,20.5,,,,,293.02,17.24
+Brock Purdy,San Francisco 49ers,QB,3800.5,23.5,,,,,331.02,19.47
+Michael Penix Jr.,Atlanta Falcons,QB,3500.5,19.5,,,,,292.02,17.18
+Trevor Lawrence,Jacksonville Jaguars,QB,3700.5,22.5,,,,,320.02,18.82
+Tua Tagovailoa,Miami Dolphins,QB,3450.5,23.5,,,,,313.52,18.44
+Cameron Ward,Tennessee Titans,QB,3200.5,19.5,,,,,277.02,16.3
+Baker Mayfield,Tampa Bay Buccaneers,QB,3800.5,29.5,,,,,367.02,21.59
+Geno Smith,Las Vegas Raiders,QB,3575.5,20.5,,,,,301.77,17.75
+Jared Goff,Detroit Lions,QB,3900.5,28.5,,,,,366.02,21.53
+Bo Nix,Denver Broncos,QB,3550.5,24.5,,,,,324.52,19.09
+Justin Herbert,Los Angeles Chargers,QB,3650.5,22.5,,,,,317.52,18.68
+Drake Maye,New England Patriots,QB,3300.5,19.5,,,500.5,,332.07,19.53
+Caleb Williams,Chicago Bears,QB,3600.5,23.5,,,425.5,,363.57,21.39
+J.J. McCarthy,Minnesota Vikings,QB,3600.5,24.5,,,,,327.02,19.24
+Dak Prescott,Dallas Cowboys,QB,3900.5,26.5,,,,,354.02,20.82
+Jordan Love,Green Bay Packers,QB,3600.5,25.5,,,,,333.02,19.59
+Bryce Young,Carolina Panthers,QB,3250.5,18.5,,,,,273.52,16.09
+Justin Fields,New York Jets,QB,2550.5,14.5,,,650.5,,279.57,16.45
+Kyler Murray,Arizona Cardinals,QB,3400.5,20.5,,,475.5,,340.57,20.03
+Jayden Daniels,Washington Commanders,QB,3450.5,23.5,,,675.5,5.5,414.07,24.36
+Josh Allen,Buffalo Bills,QB,3450.5,27.5,,,500.5,10.5,450.57,26.5
+Lamar Jackson,Baltimore Ravens,QB,3500.5,28.5,,,750.5,4.5,448.07,26.36
+C.J. Stroud,Houston Texans,QB,3800.5,21.5,,,,,319.02,18.77
+Ja'Marr Chase,Cincinnati Bengals,WR,,,1300.5,9.5,,,188.05,11.06
+Brian Thomas Jr.,Jacksonville Jaguars,WR,,,1150.5,6.5,,,155.05,9.12
+Zay Flowers,Baltimore Ravens,WR,,,900.5,4.5,,,118.05,6.94
+Bijan Robinson,Atlanta Falcons,RB,,,375.5,,1200.5,10.5,221.6,13.04
+Marvin Harrison Jr.,Arizona Cardinals,WR,,,975.5,6.5,,,137.55,8.09
+CeeDee Lamb,Dallas Cowboys,WR,,,1200.5,7.5,,,166.05,9.77
+George Pickens,Dallas Cowboys,WR,,,900.5,5.5,,,124.05,7.3
+Justin Jefferson,Minnesota Vikings,WR,,,1250.5,9.5,,,183.05,10.77
+Malik Nabers,New York Giants,WR,,,1150.5,7.5,,,161.05,9.47
+Mike Evans,Tampa Bay Buccaneers,WR,,,950.5,7.5,,,141.05,8.3
+Jahmyr Gibbs,Detroit Lions,RB,,,425.5,,1075.5,10.5,214.1,12.59
+Devonta Smith,Philadelphia Eagles,WR,,,875.5,5.5,,,121.55,7.15
+Amon-Ra St. Brown,Detroit Lions,WR,,,1100.5,8.5,,,162.05,9.53
+Puka Nacua,Los Angeles Rams,WR,,,1200.5,5.5,,,154.05,9.06
+A.J. Brown,Philadelphia Eagles,WR,,,1100.5,7.5,,,156.05,9.18
+Tyreek Hill,Miami Dolphins,WR,,,975.5,7.5,,,143.55,8.44
+D.J. Moore,Chicago Bears,WR,,,975.5,6.5,,,137.55,8.09
+Ladd McConkey,Los Angeles Chargers,WR,,,1025.5,6.5,,,142.55,8.39
+Travis Kelce,Kansas City Chiefs,TE,,,700.5,4.5,,,98.05,5.77
+Trey McBride,Arizona Cardinals,TE,,,900.5,4.5,,,118.05,6.94
+Brock Bowers,Las Vegas Raiders,TE,,,1000.5,5.5,,,134.05,7.89
+Courtland Sutton,Denver Broncos,WR,,,875.5,6.5,,,127.55,7.5
+Nico Collins,Houston Texans,WR,,,1125.5,6.5,,,152.55,8.97
+Drake London,Atlanta Falcons,WR,,,1125.5,7.5,,,158.55,9.33
+Sam LaPorta,Detroit Lions,TE,,,675.5,6.5,,,107.55,6.33
+Garrett Wilson,New York Jets,WR,,,925.5,4.5,,,120.55,7.09
+Stefon Diggs,New England Patriots,WR,,,750.5,4.5,,,103.05,6.06
+Travis Hunter,Jacksonville Jaguars,WR,,,750.5,4.5,,,103.05,6.06
+Matthew Golden,Green Bay Packers,WR,,,700.5,,,,71.05,4.18
+Tetairoa McMillan,Carolina Panthers,WR,,,800.5,4.5,,,108.05,6.36
+Saquon Barkley,Philadelphia Eagles,RB,,,275.5,,1425.5,11.5,240.1,14.12
+Davante Adams,Los Angeles Rams,WR,,,950.5,8.5,,,147.05,8.65
+DK Metcalf,Pittsburgh Steelers,WR,,,950.5,6.5,,,135.05,7.94
+Tee Higgins,Cincinnati Bengals,WR,,,975.5,7.5,,,143.55,8.44
+Keon Coleman,Buffalo Bills,WR,,,750.5,4.5,,,103.05,6.06
+Chris Olave,New Orleans Saints,WR,,,825.5,3.5,,,104.55,6.15
+Mark Andrews,Baltimore Ravens,TE,,,600.5,6.5,,,100.05,5.89
+Jameson Williams,Detroit Lions,WR,,,900.5,5.5,,,124.05,7.3
+George Kittle,San Francisco 49ers,TE,,,900.5,6.5,,,130.05,7.65
+Rome Odunze,Chicago Bears,WR,,,875.5,5.5,,,121.55,7.15
+Jaylen Waddle,Miami Dolphins,WR,,,925.5,4.5,,,120.55,7.09
+Jakobi Meyers,Las Vegas Raiders,WR,,,825.5,4.5,,,110.55,6.5
+Cooper Kupp,Seattle Seahawks,WR,,,700.5,5.5,,,104.05,6.12
+Tyler Warren,Indianapolis Colts,TE,,,550.5,,,,56.05,3.3
+Ricky Pearsall,San Francisco 49ers,WR,,,875.5,,,,88.55,5.21
+Dalton Kincaid,Buffalo Bills,TE,,,575.5,,,,58.55,3.44
+Rashod Bateman,Baltimore Ravens,WR,,,550.5,,,,56.05,3.3
+De'Von Achane,Miami Dolphins,RB,,,450.5,,900.5,,136.1,8.01
+Kyle Pitts,Atlanta Falcons,TE,,,550.5,,,,56.05,3.3
+Michael Pittman Jr.,Indianapolis Colts,WR,,,750.5,,,,76.05,4.47
+Jake Ferguson,Dallas Cowboys,TE,,,550.5,,,,56.05,3.3
+Marvin Mims,Denver Broncos,WR,,,525.5,,,,53.55,3.15
+T.J. Hockenson,Minnesota Vikings,TE,,,700.5,,,,71.05,4.18
+Tucker Kraft,Green Bay Packers,TE,,,625.5,,,,63.55,3.74
+Adam Thielen,Carolina Panthers,WR,,,550.5,,,,56.05,3.3
+Jayden Higgins,Houston Texans,WR,,,650.5,,,,66.05,3.89
+Xavier Worthy,Kansas City Chiefs,WR,,,900.5,,,,91.05,5.36
+Alvin Kamara,New Orleans Saints,RB,,,425.5,,775.5,,121.1,7.12
+Dallas Goedert,Philadelphia Eagles,TE,,,575.5,,,,58.55,3.44
+Rashid Shaheed,New Orleans Saints,WR,,,700.5,,,,71.05,4.18
+Marquise Brown,Kansas City Chiefs,WR,,,575.5,,,,58.55,3.44
+Xavier Legette,Carolina Panthers,WR,,,550.5,,,,56.05,3.3
+Breece Hall,New York Jets,RB,,,350.5,,900.5,,126.1,7.42
+David Njoku,Cleveland Browns,TE,,,625.5,,,,63.55,3.74
+Christian McCaffrey,San Francisco 49ers,RB,,,425.5,,950.5,,138.6,8.15
+Jerry Jeudy,Cleveland Browns,WR,,,900.5,,,,91.05,5.36
+Evan Engram,Denver Broncos,TE,,,575.5,,,,58.55,3.44
+Calvin Ridley,Tennessee Titans,WR,,,925.5,,,,93.55,5.5
+Jaxon Smith-Njigba,Seattle Seahawks,WR,,,975.5,,,,98.55,5.8
+Chase Brown,Cincinnati Bengals,RB,,,300.5,,900.5,,121.1,7.12
+Jordan Addison,Minnesota Vikings,WR,,,625.5,,,,63.55,3.74
+Josh Jacobs,Green Bay Packers,RB,,,,,1050.5,9.5,162.05,9.53
+Kyren Williams,Los Angeles Rams,RB,,,,,1000.5,10.5,163.05,9.59
+Jonathan Taylor,Indianapolis Colts,RB,,,,,1200.5,9.5,177.05,10.41
+Derrick Henry,Baltimore Ravens,RB,,,,,1350.5,13.5,216.05,12.71
+Bucky Irving,Tampa Bay Buccaneers,RB,,,,,1000.5,7.5,145.05,8.53
+Omarion Hampton,Los Angeles Chargers,RB,,,,,850.5,,85.05,5.0
+Ashton Jeanty,Las Vegas Raiders,RB,,,,,1050.5,7.5,150.05,8.83
+TreVeyon Henderson,New England Patriots,RB,,,,,700.5,,70.05,4.12
+James Conner,Arizona Cardinals,RB,,,,,875.5,,87.55,5.15
+Kenneth Walker III,Seattle Seahawks,RB,,,,,875.5,,87.55,5.15
+Tony Pollard,Tennessee Titans,RB,,,,,900.5,,90.05,5.3
+RJ Harvey,Denver Broncos,RB,,,,,700.5,,70.05,4.12
+Brian Robinson Jr.,Washington Commanders,RB,,,,,700.5,,70.05,4.12

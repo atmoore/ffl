@@ -1,0 +1,136 @@
+import csv
+import os
+
+# Define the output directory and file
+output_dir = "/Users/austinmoore/Desktop/FFL"
+csv_file = os.path.join(output_dir, "player_stats.csv")
+
+# Ensure the output directory exists
+os.makedirs(output_dir, exist_ok=True)
+
+# Data organized by player
+player_data = [
+    {"Player": "Aaron Rodgers", "Team": "Pittsburgh Steelers", "Position": "QB", "Over_Pass_Yards": 3200.5, "Throw_TDs": 23.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jalen Hurts", "Team": "Philadelphia Eagles", "Position": "QB", "Over_Pass_Yards": 3200.5, "Throw_TDs": 19.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 600.5, "Rush_TDs": 12.5},
+    {"Player": "Patrick Mahomes", "Team": "Kansas City Chiefs", "Position": "QB", "Over_Pass_Yards": 4050.5, "Throw_TDs": 27.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Joe Burrow", "Team": "Cincinnati Bengals", "Position": "QB", "Over_Pass_Yards": 4150.5, "Throw_TDs": 33.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Sam Darnold", "Team": "Seattle Seahawks", "Position": "QB", "Over_Pass_Yards": 3400.5, "Throw_TDs": 20.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Brock Purdy", "Team": "San Francisco 49ers", "Position": "QB", "Over_Pass_Yards": 3800.5, "Throw_TDs": 23.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Michael Penix Jr.", "Team": "Atlanta Falcons", "Position": "QB", "Over_Pass_Yards": 3500.5, "Throw_TDs": 19.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Trevor Lawrence", "Team": "Jacksonville Jaguars", "Position": "QB", "Over_Pass_Yards": 3700.5, "Throw_TDs": 22.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Tua Tagovailoa", "Team": "Miami Dolphins", "Position": "QB", "Over_Pass_Yards": 3450.5, "Throw_TDs": 23.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Cameron Ward", "Team": "Tennessee Titans", "Position": "QB", "Over_Pass_Yards": 3200.5, "Throw_TDs": 19.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Baker Mayfield", "Team": "Tampa Bay Buccaneers", "Position": "QB", "Over_Pass_Yards": 3800.5, "Throw_TDs": 29.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Geno Smith", "Team": "Las Vegas Raiders", "Position": "QB", "Over_Pass_Yards": 3575.5, "Throw_TDs": 20.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jared Goff", "Team": "Detroit Lions", "Position": "QB", "Over_Pass_Yards": 3900.5, "Throw_TDs": 28.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Bo Nix", "Team": "Denver Broncos", "Position": "QB", "Over_Pass_Yards": 3550.5, "Throw_TDs": 24.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Justin Herbert", "Team": "Los Angeles Chargers", "Position": "QB", "Over_Pass_Yards": 3650.5, "Throw_TDs": 22.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Drake Maye", "Team": "New England Patriots", "Position": "QB", "Over_Pass_Yards": 3300.5, "Throw_TDs": 19.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 500.5, "Rush_TDs": ""},
+    {"Player": "Caleb Williams", "Team": "Chicago Bears", "Position": "QB", "Over_Pass_Yards": 3600.5, "Throw_TDs": 23.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 425.5, "Rush_TDs": ""},
+    {"Player": "J.J. McCarthy", "Team": "Minnesota Vikings", "Position": "QB", "Over_Pass_Yards": 3600.5, "Throw_TDs": 24.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Dak Prescott", "Team": "Dallas Cowboys", "Position": "QB", "Over_Pass_Yards": 3900.5, "Throw_TDs": 26.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jordan Love", "Team": "Green Bay Packers", "Position": "QB", "Over_Pass_Yards": 3600.5, "Throw_TDs": 25.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Bryce Young", "Team": "Carolina Panthers", "Position": "QB", "Over_Pass_Yards": 3250.5, "Throw_TDs": 18.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Justin Fields", "Team": "New York Jets", "Position": "QB", "Over_Pass_Yards": 2550.5, "Throw_TDs": 14.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 650.5, "Rush_TDs": ""},
+    {"Player": "Kyler Murray", "Team": "Arizona Cardinals", "Position": "QB", "Over_Pass_Yards": 3400.5, "Throw_TDs": 20.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 475.5, "Rush_TDs": ""},
+    {"Player": "Jayden Daniels", "Team": "Washington Commanders", "Position": "QB", "Over_Pass_Yards": 3450.5, "Throw_TDs": 23.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 675.5, "Rush_TDs": 5.5},
+    {"Player": "Josh Allen", "Team": "Buffalo Bills", "Position": "QB", "Over_Pass_Yards": 3450.5, "Throw_TDs": 27.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 500.5, "Rush_TDs": 10.5},
+    {"Player": "Lamar Jackson", "Team": "Baltimore Ravens", "Position": "QB", "Over_Pass_Yards": 3500.5, "Throw_TDs": 28.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 750.5, "Rush_TDs": 4.5},
+    {"Player": "C.J. Stroud", "Team": "Houston Texans", "Position": "QB", "Over_Pass_Yards": 3800.5, "Throw_TDs": 21.5, "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Ja'Marr Chase", "Team": "Cincinnati Bengals", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1300.5, "Rec_TDs": 9.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Brian Thomas Jr.", "Team": "Jacksonville Jaguars", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1150.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Zay Flowers", "Team": "Baltimore Ravens", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 900.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Bijan Robinson", "Team": "Atlanta Falcons", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 375.5, "Rec_TDs": "", "Rush_Yards": 1200.5, "Rush_TDs": 10.5},
+    {"Player": "Marvin Harrison Jr.", "Team": "Arizona Cardinals", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 975.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "CeeDee Lamb", "Team": "Dallas Cowboys", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1200.5, "Rec_TDs": 7.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "George Pickens", "Team": "Dallas Cowboys", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 900.5, "Rec_TDs": 5.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Justin Jefferson", "Team": "Minnesota Vikings", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1250.5, "Rec_TDs": 9.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Malik Nabers", "Team": "New York Giants", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1150.5, "Rec_TDs": 7.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Mike Evans", "Team": "Tampa Bay Buccaneers", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 950.5, "Rec_TDs": 7.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jahmyr Gibbs", "Team": "Detroit Lions", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 425.5, "Rec_TDs": "", "Rush_Yards": 1075.5, "Rush_TDs": 10.5},
+    {"Player": "Devonta Smith", "Team": "Philadelphia Eagles", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 875.5, "Rec_TDs": 5.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Amon-Ra St. Brown", "Team": "Detroit Lions", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1100.5, "Rec_TDs": 8.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Puka Nacua", "Team": "Los Angeles Rams", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1200.5, "Rec_TDs": 5.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "A.J. Brown", "Team": "Philadelphia Eagles", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1100.5, "Rec_TDs": 7.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Tyreek Hill", "Team": "Miami Dolphins", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 975.5, "Rec_TDs": 7.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "D.J. Moore", "Team": "Chicago Bears", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 975.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Ladd McConkey", "Team": "Los Angeles Chargers", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1025.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Travis Kelce", "Team": "Kansas City Chiefs", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 700.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Trey McBride", "Team": "Arizona Cardinals", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 900.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Brock Bowers", "Team": "Las Vegas Raiders", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1000.5, "Rec_TDs": 5.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Courtland Sutton", "Team": "Denver Broncos", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 875.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Nico Collins", "Team": "Houston Texans", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1125.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Drake London", "Team": "Atlanta Falcons", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 1125.5, "Rec_TDs": 7.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Sam LaPorta", "Team": "Detroit Lions", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 675.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Garrett Wilson", "Team": "New York Jets", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 925.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Stefon Diggs", "Team": "New England Patriots", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 750.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Travis Hunter", "Team": "Jacksonville Jaguars", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 750.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Matthew Golden", "Team": "Green Bay Packers", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 700.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Tetairoa McMillan", "Team": "Carolina Panthers", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 800.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Saquon Barkley", "Team": "Philadelphia Eagles", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 275.5, "Rec_TDs": "", "Rush_Yards": 1425.5, "Rush_TDs": 11.5},
+    {"Player": "Davante Adams", "Team": "Los Angeles Rams", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 950.5, "Rec_TDs": 8.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "DK Metcalf", "Team": "Pittsburgh Steelers", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 950.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Tee Higgins", "Team": "Cincinnati Bengals", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 975.5, "Rec_TDs": 7.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Keon Coleman", "Team": "Buffalo Bills", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 750.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Chris Olave", "Team": "New Orleans Saints", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 825.5, "Rec_TDs": 3.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Mark Andrews", "Team": "Baltimore Ravens", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 600.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jameson Williams", "Team": "Detroit Lions", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 900.5, "Rec_TDs": 5.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "George Kittle", "Team": "San Francisco 49ers", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 900.5, "Rec_TDs": 6.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Rome Odunze", "Team": "Chicago Bears", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 875.5, "Rec_TDs": 5.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jaylen Waddle", "Team": "Miami Dolphins", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 925.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jakobi Meyers", "Team": "Las Vegas Raiders", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 825.5, "Rec_TDs": 4.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Cooper Kupp", "Team": "Seattle Seahawks", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 700.5, "Rec_TDs": 5.5, "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Tyler Warren", "Team": "Indianapolis Colts", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 550.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Ricky Pearsall", "Team": "San Francisco 49ers", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 875.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Dalton Kincaid", "Team": "Buffalo Bills", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 575.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Rashod Bateman", "Team": "Baltimore Ravens", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 550.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "De'Von Achane", "Team": "Miami Dolphins", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 450.5, "Rec_TDs": "", "Rush_Yards": 900.5, "Rush_TDs": ""},
+    {"Player": "Kyle Pitts", "Team": "Atlanta Falcons", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 550.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Michael Pittman Jr.", "Team": "Indianapolis Colts", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 750.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jake Ferguson", "Team": "Dallas Cowboys", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 550.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Marvin Mims", "Team": "Denver Broncos", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 525.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "T.J. Hockenson", "Team": "Minnesota Vikings", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 700.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Tucker Kraft", "Team": "Green Bay Packers", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 625.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Adam Thielen", "Team": "Carolina Panthers", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 550.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jayden Higgins", "Team": "Houston Texans", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 650.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Xavier Worthy", "Team": "Kansas City Chiefs", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 900.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Alvin Kamara", "Team": "New Orleans Saints", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 425.5, "Rec_TDs": "", "Rush_Yards": 775.5, "Rush_TDs": ""},
+    {"Player": "Dallas Goedert", "Team": "Philadelphia Eagles", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 575.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Rashid Shaheed", "Team": "New Orleans Saints", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 700.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Marquise Brown", "Team": "Kansas City Chiefs", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 575.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Xavier Legette", "Team": "Carolina Panthers", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 550.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Breece Hall", "Team": "New York Jets", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 350.5, "Rec_TDs": "", "Rush_Yards": 900.5, "Rush_TDs": ""},
+    {"Player": "David Njoku", "Team": "Cleveland Browns", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 625.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Christian McCaffrey", "Team": "San Francisco 49ers", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 425.5, "Rec_TDs": "", "Rush_Yards": 950.5, "Rush_TDs": ""},
+    {"Player": "Jerry Jeudy", "Team": "Cleveland Browns", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 900.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Evan Engram", "Team": "Denver Broncos", "Position": "TE", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 575.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Calvin Ridley", "Team": "Tennessee Titans", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 925.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Jaxon Smith-Njigba", "Team": "Seattle Seahawks", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 975.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Chase Brown", "Team": "Cincinnati Bengals", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 300.5, "Rec_TDs": "", "Rush_Yards": 900.5, "Rush_TDs": ""},
+    {"Player": "Jordan Addison", "Team": "Minnesota Vikings", "Position": "WR", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": 625.5, "Rec_TDs": "", "Rush_Yards": "", "Rush_TDs": ""},
+    {"Player": "Josh Jacobs", "Team": "Green Bay Packers", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 1050.5, "Rush_TDs": 9.5},
+    {"Player": "Kyren Williams", "Team": "Los Angeles Rams", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 1000.5, "Rush_TDs": 10.5},
+    {"Player": "Jonathan Taylor", "Team": "Indianapolis Colts", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 1200.5, "Rush_TDs": 9.5},
+    {"Player": "Derrick Henry", "Team": "Baltimore Ravens", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 1350.5, "Rush_TDs": 13.5},
+    {"Player": "Bucky Irving", "Team": "Tampa Bay Buccaneers", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 1000.5, "Rush_TDs": 7.5},
+    {"Player": "Omarion Hampton", "Team": "Los Angeles Chargers", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 850.5, "Rush_TDs": ""},
+    {"Player": "Ashton Jeanty", "Team": "Las Vegas Raiders", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 1050.5, "Rush_TDs": 7.5},
+    {"Player": "TreVeyon Henderson", "Team": "New England Patriots", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 700.5, "Rush_TDs": ""},
+    {"Player": "James Conner", "Team": "Arizona Cardinals", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 875.5, "Rush_TDs": ""},
+    {"Player": "Kenneth Walker III", "Team": "Seattle Seahawks", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 875.5, "Rush_TDs": ""},
+    {"Player": "Tony Pollard", "Team": "Tennessee Titans", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 900.5, "Rush_TDs": ""},
+    {"Player": "RJ Harvey", "Team": "Denver Broncos", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 700.5, "Rush_TDs": ""},
+    {"Player": "Brian Robinson Jr.", "Team": "Washington Commanders", "Position": "RB", "Over_Pass_Yards": "", "Throw_TDs": "", "Rec_Yards": "", "Rec_TDs": "", "Rush_Yards": 700.5, "Rush_TDs": ""}
+]
+
+# Write to CSV file
+try:
+    with open(csv_file, mode='w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=["Player", "Team", "Position", "Over_Pass_Yards", "Throw_TDs", "Rec_Yards", "Rec_TDs", "Rush_Yards", "Rush_TDs"])
+        writer.writeheader()
+        writer.writerows(player_data)
+    print(f"CSV file '{csv_file}' has been created successfully at {output_dir}.")
+except PermissionError:
+    print(f"Error: Permission denied when trying to write to '{csv_file}'. Please ensure you have write permissions for the directory.")
+except Exception as e:
+    print(f"Error: An unexpected error occurred: {str(e)}")
